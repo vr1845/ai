@@ -1,0 +1,61 @@
+Using Tensorflow
+
+import tensorflow as tf
+
+# Create tensors
+tensorA = tf.constant([[1, 2], [3, 4], [5, 6]])
+tensorB = tf.constant([[1, -1], [2, -2], [3, -3]])
+
+# Addition
+add_result = tf.add(tensorA, tensorB)
+print("Addition Result:", add_result)
+
+# Subtraction
+sub_result = tf.subtract(tensorA, tensorB)
+print("\nSubtraction Result:", sub_result)
+
+# Element-wise Multiplication
+mul_result = tf.multiply(tensorA, tensorB)
+print("\nElement-wise Multiplication Result:", mul_result)
+
+# Division
+div_result = tf.divide(tensorA, tensorB)
+print("\nDivision Result:", div_result)
+
+# Square operation
+tensorC = tf.constant([1, 2, 3, 4])
+square_result = tf.square(tensorC)
+print("\nSquare Result:", square_result)
+
+# Reshape operation
+reshape_result = tf.reshape(tensorA, [2, 3]) 
+print("\nReshape Result:", reshape_result)
+
+--------------------------------------------------------------------------------------
+Using PyTorch
+
+import torch
+
+# Create tensors
+x = torch.tensor([1, 2, 3])
+y = torch.tensor([4, 5, 6])
+
+# Addition
+add_result = torch.add(x, y)
+print("Addition Result:", add_result)
+
+# Subtraction
+sub_result = torch.sub(x, y)  # or torch.subtract
+print("\nSubtraction Result:", sub_result)
+
+# Element-wise Multiplication
+mul_result = torch.mul(x, y)  # or torch.multiply
+print("\nElement-wise Multiplication Result:", mul_result)
+
+# Division
+div_result = torch.div(x, y)  # or torch.divide
+print("\nDivision Result:", div_result)
+
+# Matrix multiplication (dot product)
+matmul_result = torch.matmul(x, y)
+print("\nMatrix Multiplication (Dot Product) Result:", matmul_result)

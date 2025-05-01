@@ -1,0 +1,40 @@
+# === TensorFlow Code ===
+import tensorflow as tf
+
+# Define 2 matrices as float tensors
+tensorA = tf.constant([[1, 2], [3, 4], [5, 6]], dtype=tf.float32)   # 3×2 matrix
+tensorB = tf.constant([[1, -1], [2, -2], [3, -3]], dtype=tf.float32) # 3×2 matrix
+
+# Element-wise operations
+add_result_tf = tf.add(tensorA, tensorB)
+sub_result_tf = tf.subtract(tensorA, tensorB)
+mul_result_tf = tf.multiply(tensorA, tensorB)
+div_result_tf = tf.divide(tensorA, tensorB)
+
+# Print results
+print("TensorFlow Results:")
+print("Addition:\n", add_result_tf.numpy())
+print("Subtraction:\n", sub_result_tf.numpy())
+print("Element-wise Multiplication:\n", mul_result_tf.numpy())
+print("Division:\n", div_result_tf.numpy())
+
+
+# === PyTorch Code ===
+import torch
+
+# Define 2 matrices as float tensors
+matA = torch.tensor([[1, 2], [3, 4], [5, 6]], dtype=torch.float32)    # 3×2 matrix
+matB = torch.tensor([[1, -1], [2, -2], [3, -3]], dtype=torch.float32) # 3×2 matrix
+
+# Element-wise operations
+add_result_pt = matA + matB
+sub_result_pt = matA - matB
+mul_result_pt = matA * matB
+div_result_pt = matA / matB
+
+# Print results
+print("\nPyTorch Results:")
+print("Addition:\n", add_result_pt)
+print("Subtraction:\n", sub_result_pt)
+print("Element-wise Multiplication:\n", mul_result_pt)
+print("Division:\n", div_result_pt)

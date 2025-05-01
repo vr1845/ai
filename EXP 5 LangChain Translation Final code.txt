@@ -1,0 +1,40 @@
+API KEY ====    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
+
+
+
+
+
+
+!pip install --upgrade --quiet langchain-groq langchain-core
+
+from getpass import getpass
+import os
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+if "GROQ_API_KEY" not in os.environ:
+    os.environ["GROQ_API_KEY"] = getpass("Paste Groq API key from console.groq.com: ")
+
+llm = ChatGroq(
+    model_name="llama3-70b-8192",
+    temperature=0.3
+)
+
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a professional translator. Strictly translate the following to {target_language} without adding explanations:"),
+    ("human", "{text}")
+])
+chain = prompt | llm | StrOutputParser()
+
+def translate(text, target_language="Hindi"):
+    return chain.invoke({"text": text, "target_language": target_language})
+
+print("=== Official Translation Tool ===")
+print("(Type 'exit' to end)\n")
+while True:
+    text = input("Original text: ")
+    if text.lower() == 'exit':
+        break
+    lang = input("Target language: ")
+    print(f"\n{lang} Translation: {translate(text, lang)}\n")
